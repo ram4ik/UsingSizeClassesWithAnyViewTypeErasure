@@ -9,12 +9,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.horizontalSizeClass) var sizeClass
     
     var body: some View {
-        Text("Hello World")
-            .onTapGesture {
-                self.presentationMode.wrappedValue.dismiss()
+        if sizeClass == .compact {
+            return AnyView(VStack {
+                Text("Activate size class:")
+                Text("COMPACT")
+            }
+            .font(.largeTitle))
+        } else {
+            return AnyView(HStack {
+                Text("Active size class:")
+                Text("REGULAR")
+            }
+            .font(.largeTitle))
         }
     }
 }
