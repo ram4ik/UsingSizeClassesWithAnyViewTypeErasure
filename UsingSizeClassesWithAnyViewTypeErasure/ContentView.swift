@@ -9,8 +9,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         Text("Hello World")
+            .onTapGesture {
+                self.presentationMode.wrappedValue.dismiss()
+        }
     }
 }
 
